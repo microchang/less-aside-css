@@ -1,6 +1,6 @@
 {
   "name": "less-aside-css",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "change  less files  2 css files. all files are in some dir.",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,16 @@
     "less",
     "css"
   ],
+   "repository": {
+    "type": "git",
+    "url": "git@github.com:microchang/less-aside-css.git"
+  },
+   "bin": {
+    "l2c": "./index.js"
+  },
+   "engines": {
+    "node": ">=0.10.0"
+  },
   "author": "microchang",
   "license": "MIT",
   "dependencies": {
