@@ -1,0 +1,18 @@
+{
+  "name": "less-aside-css",
+  "version": "0.0.1",
+  "description": "change  less files  2 css files. all files are in some dir.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "less",
+    "css"
+  ],
+  "author": "microchang",
+  "license": "MIT",
+  "dependencies": {
+    "less": "^2.6.1"
+  }
+}

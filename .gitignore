@@ -1,0 +1,10 @@
+#IDE or other
+.vscode
+
+#node_modules
+node_modules
+
+# files 
+
+.less
+.css
