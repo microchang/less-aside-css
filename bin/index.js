@@ -1,11 +1,19 @@
+#!/usr/bin/env node
+
 'use strict';
 var fs = require('fs');
 var path = require('path');
 var less = require('less');
+var args = process.argv;
+var _Dir = args[2] || process.cwd();
+
+
+executeDir(_Dir);
+
 
 function executeDir(_file) {
 
-    if (path.basename(_file) === 'node_modules' || path.basename(_file) === '.git') {
+    if (path.basename(_file) == 'node_modules' || path.basename(_file) === '.git') {
         return;
     }
     if (fs.statSync(_file).isDirectory()) {
@@ -26,6 +34,7 @@ function executeDir(_file) {
  * @param  {string} file
  */
 function addWatch(file) {
+    console.log('watch files:  ', file)
     if (!fs.statSync(file).isDirectory()) {
         return;
     }
@@ -60,21 +69,5 @@ process.on('uncaughtException', (err) => {
     console.error(err);
 });
 
-
 console.log('all less files has changed into css files at some dir.');
 console.log('watching files changes...');
-
-module.exports = function l2c(dir) {
-
-    if (typeof dir !== 'string') {
-        return;
-    }
-
-    if (dir[0] === path.sep) {
-        return executeDir(dir);
-    }
-
-    //啊哈……一个坑……但是怎么填呢？
-    var dirPath = path.join(process.cwd(), dir);
-    executeDir(dirPath);
-};

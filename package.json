@@ -1,6 +1,6 @@
 {
   "name": "less-aside-css",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "change  less files  2 css files. all files are in some dir.",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "url": "git@github.com:microchang/less-aside-css.git"
   },
    "bin": {
-    "l2c": "./index.js"
+    "l2c": "./bin/index.js"
   },
    "engines": {
     "node": ">=0.10.0"
