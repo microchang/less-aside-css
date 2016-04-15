@@ -25,7 +25,7 @@
 
 #### BUG
 
-@import 处路径有问题。
+less 文件中的 `@import ”xxx.less“` 处路径有问题，目前只能限定为import文件时使用双引号包裹文件名。
 
 ----
 

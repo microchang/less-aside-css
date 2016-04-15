@@ -45,8 +45,8 @@ function addWatch(file) {
  * @param  {string} file
  */
 function less2css(file) {
-    const lessContent = fs.readFileSync(file, 'utf8');
-    console.log(lessContent);
+    let lessContent = fs.readFileSync(file, 'utf8');
+    lessContent = lessContent.replace(/@import\s*"/g, "@import \"" + path.dirname(file) + path.sep);
     less.render(lessContent, function(e, css) {
         if (e) {
             console.error('err file name:', file);

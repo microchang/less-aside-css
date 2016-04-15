@@ -1,6 +1,6 @@
 {
   "name": "less-aside-css",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "change  less files  2 css files. all files are in some dir.",
   "main": "index.js",
   "scripts": {
