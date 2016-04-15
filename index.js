@@ -46,6 +46,7 @@ function addWatch(file) {
  */
 function less2css(file) {
     const lessContent = fs.readFileSync(file, 'utf8');
+    console.log(lessContent);
     less.render(lessContent, function(e, css) {
         if (e) {
             console.error('err file name:', file);
@@ -70,11 +71,13 @@ module.exports = function l2c(dir) {
         return;
     }
 
-    if (dir[0] === path.sep) {
-        return executeDir(dir);
-    }
+    executeDir(dir);
+
+    // if (dir[0] === path.sep) {
+    //     return executeDir(dir);
+    // }
 
     //啊哈……一个坑……但是怎么填呢？
-    var dirPath = path.join(process.cwd(), dir);
-    executeDir(dirPath);
+    // var dirPath = path.join(process.cwd(), dir);
+    // executeDir(dirPath);
 };
