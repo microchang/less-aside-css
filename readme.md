@@ -23,6 +23,10 @@
     less2css(path.join(__dirname,'./static');
    
 
+#### BUG
+
+@import 处路径有问题。
+
 ----
 
 ### less-aside-css
