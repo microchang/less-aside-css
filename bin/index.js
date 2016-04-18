@@ -25,7 +25,7 @@ function executeDir(file, options) {
             addWatch(file);
         }
 
-        let dirContents = fs.readdirSync(file);
+        var dirContents = fs.readdirSync(file);
         dirContents.forEach(function(content) {
             executeDir(path.join(file, content));
         });
@@ -50,7 +50,7 @@ function addWatch(file) {
         if (event !== 'change' || path.extname(childFile) !== '.less') {
             return;
         }
-        let filePath = path.join(path.dirname(file), path.basename(file), childFile);
+        var filePath = path.join(path.dirname(file), path.basename(file), childFile);
         less2css(filePath);
 
     });

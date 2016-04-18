@@ -12,7 +12,7 @@ function executeDir(_file, options) {
         if (options && options.isWatch) {
             addWatch(_file);
         }
-        let dirContents = fs.readdirSync(_file);
+        var dirContents = fs.readdirSync(_file);
         dirContents.forEach(function(content) {
             executeDir(path.join(_file, content));
         });
@@ -36,7 +36,7 @@ function addWatch(file) {
         if (event !== 'change' || path.extname(childFile) !== '.less') {
             return;
         }
-        let filePath = path.join(path.dirname(file), path.basename(file), childFile);
+        var filePath = path.join(path.dirname(file), path.basename(file), childFile);
         less2css(filePath);
 
     });
@@ -47,7 +47,7 @@ function addWatch(file) {
  * @param  {string} file
  */
 function less2css(file) {
-    let lessContent = fs.readFileSync(file, 'utf8');
+    var lessContent = fs.readFileSync(file, 'utf8');
     lessContent = lessContent.replace(/@import\s*"/g, "@import \"" + path.dirname(file) + path.sep);
     less.render(lessContent, function(e, css) {
         if (e) {
