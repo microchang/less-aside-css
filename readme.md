@@ -13,11 +13,13 @@
  
  进入静态文件目录，输入：
   
-  `l2c`
+  `l2c -w`
  
  或者：
  
-  `l2c {文件夹目录}`
+  `l2c -d={文件夹目录} -w`
+  
+  *目前接受两个参数 -d指定文件夹目录，-w指定是否监控文件变化*
 
  
 #### js文件中调用 
@@ -46,11 +48,13 @@
  
  cd static file folder,enter:
  
- `l2c`
+ `l2c -w`
  
  or:
  
- `l2c {folder}`
+ `l2c -d={folder} -w`
+ 
+ *now we accept two args:**d** for folder,and **w** for watch file changes.*
  
 #### Using in js file
  

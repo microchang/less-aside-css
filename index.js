@@ -64,17 +64,18 @@ process.on('uncaughtException', (err) => {
 });
 
 
-console.log('all less files has changed into css files at some dir.');
-console.log('watching files changes...');
 
-module.exports = function l2c(dir) {
+
+module.exports = function l2c(dir, options) {
 
     if (typeof dir !== 'string') {
         return;
     }
-
-    executeDir(dir);
-
+    executeDir(dir, options);
+    console.log('all less files has changed into css files at some dir.');
+    if (options && options.isWatch) {
+        console.log('watching files changes...');
+    }
     // if (dir[0] === path.sep) {
     //     return executeDir(dir);
     // }

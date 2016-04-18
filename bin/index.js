@@ -77,4 +77,4 @@ process.on('uncaughtException', (err) => {
 });
 
 console.log('all less files has changed into css files at some dir.');
-console.log('watching files changes...');
+if (_isWatch) console.log('watching files changes...');
