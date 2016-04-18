@@ -25,8 +25,11 @@
     var less2css = require('less-aside-css')；
     var path = require('path');
    
+    var options={
+        isWatch:true
+    };
     //目前需要一个绝对路径
-    less2css(path.join(__dirname,'./static');
+    less2css(path.join(__dirname,'./static',options);
    
 ----
 
@@ -54,8 +57,12 @@
     var less2css = require('less-aside-css')；
     var path = require('path');
    
+    var options={
+        isWatch:true
+    };
+   
     //now it need a absolute path
-    less2css(path.join(__dirname,'./static');
+    less2css(path.join(__dirname,'./static',options);
 
 
 ----

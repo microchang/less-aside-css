@@ -4,26 +4,33 @@
 var fs = require('fs');
 var path = require('path');
 var less = require('less');
-var args = process.argv;
-var _Dir = args[2] || process.cwd();
+var argv = require('yargs').argv
+
+var _Dir = argv.d || process.cwd();
+var _isWatch = argv.w;
+
+executeDir(_Dir, {
+    isWatch: _isWatch
+});
 
 
-executeDir(_Dir);
+function executeDir(file, options) {
 
-
-function executeDir(_file) {
-
-    if (path.basename(_file) == 'node_modules' || path.basename(_file) === '.git') {
+    if (path.basename(file) == 'node_modules' || path.basename(file) === '.git') {
         return;
     }
-    if (fs.statSync(_file).isDirectory()) {
-        addWatch(_file);
-        let dirContents = fs.readdirSync(_file);
+    if (fs.statSync(file).isDirectory()) {
+
+        if (options && options.isWatch) {
+            addWatch(file);
+        }
+
+        let dirContents = fs.readdirSync(file);
         dirContents.forEach(function(content) {
-            executeDir(path.join(_file, content));
+            executeDir(path.join(file, content));
         });
-    } else if (path.extname(_file) === '.less') {
-        less2css(_file);
+    } else if (path.extname(file) === '.less') {
+        less2css(file);
     }
 }
 

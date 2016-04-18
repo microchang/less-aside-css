@@ -3,13 +3,15 @@ var fs = require('fs');
 var path = require('path');
 var less = require('less');
 
-function executeDir(_file) {
+function executeDir(_file, options) {
 
     if (path.basename(_file) === 'node_modules' || path.basename(_file) === '.git') {
         return;
     }
     if (fs.statSync(_file).isDirectory()) {
-        addWatch(_file);
+        if (options && options.isWatch) {
+            addWatch(_file);
+        }
         let dirContents = fs.readdirSync(_file);
         dirContents.forEach(function(content) {
             executeDir(path.join(_file, content));
