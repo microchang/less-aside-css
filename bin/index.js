@@ -61,18 +61,18 @@ function addWatch(file) {
  * @param  {string} file
  */
 function less2css(file) {
-    const lessContent = fs.readFileSync(file, 'utf8');
+    var lessContent = fs.readFileSync(file, 'utf8');
     less.render(lessContent, function(e, css) {
         if (e) {
             console.error('err file name:', file);
             throw e;
         }
-        const fileName = path.join(path.dirname(file), path.basename(file, '.less') + '.css');
+        var fileName = path.join(path.dirname(file), path.basename(file, '.less') + '.css');
         fs.writeFileSync(fileName, css.css);
     });
 }
 
-process.on('uncaughtException', (err) => {
+process.on('uncaughtException', function(err) {
     console.error(err);
 });
 

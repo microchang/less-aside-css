@@ -54,7 +54,7 @@ function less2css(file) {
             console.error('err file name:', file);
             throw e;
         }
-        const fileName = path.join(path.dirname(file), path.basename(file, '.less') + '.css');
+        var fileName = path.join(path.dirname(file), path.basename(file, '.less') + '.css');
         fs.writeFileSync(fileName, css.css);
     });
 }
